@@ -15,7 +15,7 @@ class DorkParser:
 
     def set_result_search(self, result):
         if result > 99:
-            print(f"You can't ser results search > 99")
+            print(f"You can't set results search > 99")
             return
         self.RESULT_SEARCH = result
         print(f"Result search google dork={result}")
