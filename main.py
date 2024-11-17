@@ -2,52 +2,50 @@ from parsing_dork import DorkParser
 from start_wpscan import wpscan
 import argparse
 
-banner = '''
- __          __      _____                         
- \ \        / /     |  __ \                        
-  \ \  /\  / / __   | |__) |_ _ _ __ ___  ___ _ __ 
-   \ \/  \/ / '_ \  |  ___/ _` | '__/ __|/ _ \ '__|
-    \  /\  /| |_) | | |  | (_| | |  \__ \  __/ |   
-     \/  \/ | .__/  |_|   \__,_|_|  |___/\___|_|   
-            | |                                    
-            |_|                                   
-'''
 
+b = '''
+    ▗▖ ▗▖▗▄▄▖     ▗▄▄▖  ▗▄▖ ▗▄▄▖  ▗▄▄▖▗▄▄▄▖▗▄▄▖ 
+    ▐▌ ▐▌▐▌ ▐▌    ▐▌ ▐▌▐▌ ▐▌▐▌ ▐▌▐▌   ▐▌   ▐▌ ▐▌
+    ▐▌ ▐▌▐▛▀▘     ▐▛▀▘ ▐▛▀▜▌▐▛▀▚▖ ▝▀▚▖▐▛▀▀▘▐▛▀▚▖
+    ▐▙█▟▌▐▌       ▐▌   ▐▌ ▐▌▐▌ ▐▌▗▄▄▞▘▐▙▄▄▖▐▌ ▐▌
+        
+                                t.me/EXxX0RCIST
+    '''
+    
 def main():
-    scan = wpscan()
-    search = DorkParser()
+    parser = argparse.ArgumentParser(description=b)
 
-    parser = argparse.ArgumentParser(description="EXxX0RCIST E6AJI BCEM PTbI U }I{0nbI")
+    search = DorkParser()
+    scan = wpscan()
 
     # Добавляем аргументы
     parser.add_argument('-p', '--parsing', type=str, help='only parsing and collecting entry points')
-    parser.add_argument('-s', '--scan', type=str, help='only scan targets')
     parser.add_argument('-d', '--dorkresult', type=int, help='number of search results for dorks')
     parser.add_argument('-t', '--timesleep', type=int, help='time between google queries')
-    parser.add_argument('-T', '--triger', type=str, help='set triger for wpscan out')
+    parser.add_argument('-s', '--wpscan', type=str, help='only scan wpscan of targets')
+    parser.add_argument('-T', '--triger', type=str, help='set triger to output wpscan')
+    parser.add_argument('-o', '--saveout', type=str, help='set save output wpscan')
 
     # Парсим аргументы
     args = parser.parse_args()
 
-    print(banner)
-
-    # Обработка аргументов
     if args.parsing:
+        if args.dorkresult is not None:
+            search.set_result_search(args.parsing)
         if args.timesleep is not None:
             search.set_time_sleep(args.timesleep)
-        if args.dorkresult is not None:
-            search.set_result_search(args.dorkresult)
         search.main_pars()
-
-    elif args.scan:
+    elif args.wpascan:
         if args.triger is not None:
             scan.set_triger(args.triger)
+        if args.saveout is not None:
+            scan.set_save_output()
         scan.main_scan()
     else:
+        if args.dorkresult is not None:
+            search.set_result_search(args.parsing)
         if args.timesleep is not None:
             search.set_time_sleep(args.timesleep)
-        if args.dorkresult is not None:
-            search.set_result_search(args.dorkresult)
         if args.triger is not None:
             scan.set_triger(args.triger)
         search.main_pars()
