@@ -13,7 +13,7 @@ b = '''
     '''
     
 def main():
-    parser = argparse.ArgumentParser(description=b)
+    parser = argparse.ArgumentParser()
 
     search = DorkParser()
     scan = wpscan()
@@ -28,6 +28,7 @@ def main():
 
     # Парсим аргументы
     args = parser.parse_args()
+    print(b)
 
     if args.parsing:
         if args.dorkresult is not None:
