@@ -14,7 +14,7 @@ class DorkParser:
         print(f"Time sleep={time_slep}")
 
     def set_result_search(self, result):
-        if result > 99:
+        if int(result) > 99:
             print(f"You can't set results search > 99")
             return
         self.RESULT_SEARCH = result
