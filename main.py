@@ -35,7 +35,7 @@ def main():
         if args.timesleep is not None:
             search.set_time_sleep(args.timesleep)
         search.main_pars()
-    elif args.wpascan:
+    elif args.wpscan:
         if args.triger is not None:
             scan.set_triger(args.triger)
         if args.saveout is not None:
