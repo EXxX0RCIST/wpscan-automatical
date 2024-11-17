@@ -1,1 +1,16 @@
+site:.it/wp-content/plugins/give
+site:.ru/wp-content/plugins/give
+site:.ua/wp-content/plugins/give
+site:.uk/wp-content/plugins/give
+site:.us/wp-content/plugins/give
+site:.org/wp-content/plugins/give
+site:.com/wp-content/plugins/give
+site:.xyz/wp-content/plugins/give
 site:.it/wp-admin
+site:.ru/wp-admin
+site:.ua/wp-admin
+site:.uk/wp-admin
+site:.us/wp-admin
+site:.org/wp-admin
+site:.com/wp-admin
+site:.xyz/wp-admin
